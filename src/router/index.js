@@ -1,10 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+// 懒加载
 const Home = () => import('../views/home/Home')
 const Category = () => import('../views/category/Category')
 const Cart = () => import('../views/cart/Cart')
 const Profile = () => import('../views/profile/Profile')
+const Detail = () => import('../views/detail/Detail.vue')
 
 
 // 1. 安装插件
@@ -32,6 +34,15 @@ const routes = [
   {
     path: '/profile',
     component: Profile
+  },
+  {
+    // 方法一： 配置动态路由
+    path: '/detail/:iid',
+    component: Detail
+
+    // 方法二： query传递
+    // path: '/detail/:iid',
+    // component: Detail
   }
 ]
 
